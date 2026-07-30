@@ -1,0 +1,588 @@
+@import "../../styles/colors";
+
+.checkout-dialog {
+  width: 100vw !important;
+  max-width: unset !important;
+  height: calc(100vh - 42px) !important;
+  background-color: $checkout-dialog-bg;
+}
+
+.modal-dialog.checkout-dialog {
+  margin-top: 0 !important;
+}
+
+.checkout-container {
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding-bottom: 10px;
+  max-width: unset !important;
+  padding-top: 20px;
+}
+
+.page-1 {
+  max-width: 850px !important;
+  height: calc(100vh - 164px) !important;
+}
+
+.color-green {
+  color: green !important;
+}
+
+.color-red {
+  color: red !important;
+}
+
+.font-size-15 {
+  font-size: 20px;
+}
+
+.font-size-25 {
+  font-size: 30px;
+}
+
+.font-size-50 {
+  font-size: 50px;
+}
+
+.width-350px {
+  width: 350px !important;
+}
+
+.custom-breadcrums {
+  left: 20px;
+  position: absolute;
+}
+
+.close-icon {
+  right: 20px;
+  position: absolute;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: start;
+  justify-content: flex-end;
+}
+
+.close-icon:hover {
+  cursor: pointer;
+}
+
+.button-border {
+  border: 2px dotted;
+}
+
+.large-icon {
+  font-size: 1.5rem !important;
+}
+
+.w-500px {
+  width: 500px !important;
+}
+
+.payment-btn {
+  background-color: $payment-green-btn;
+  border: 1px solid $payment-btn-border;
+  width: 240px;
+  height: 32px;
+  color: $white;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mastercard-icon {
+  font-size: 2rem;
+}
+
+.back-button {
+  width: 200px !important;
+  color: $silver-text;
+  border: 1px solid $silver-border;
+  border-radius: 3px;
+  height: 32px;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.height-32px {
+  height: 32px !important;
+}
+
+.order-btn {
+  width: 250px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 32px;
+  color: $white;
+  border-radius: 3px;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.payment-green-btn {
+  background-color: $payment-green-btn;
+  border: 1px solid $payment-btn-border;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+
+.make-payment-btn {
+  padding: 0 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  background-color: $payment-green-btn;
+  border: 1px solid $payment-btn-border;
+  border-radius: 3px;
+}
+
+.payment-red-btn {
+  background-color: $qty-minus-btn-color;
+}
+
+.preferred-delivery-checkbox {
+  width: 25px !important;
+  height: 25px !important;
+  margin-top: 0;
+}
+
+.preferred-date-picker {
+  text-align: center;
+  border: 1px solid $silver-border;
+  margin-right: 50px;
+}
+
+.btn-time {
+  background-color: $white;
+  color: $black;
+  border-radius: 0;
+  padding: 1px 10px;
+  width: 205px;
+  border: 1px solid $silver-border
+}
+
+.checkout-close-btn {
+  color: $black;
+}
+
+.checkout-title-color {
+  color: $product-labels-color;
+  border: none !important;
+  -webkit-box-shadow: 0px 0.07rem 1px 0px $category-border;;
+  -moz-box-shadow: 0px 0.07rem 1px 0px $category-border;;
+  box-shadow: 0px 0.07rem 1px 0px $category-border;
+  background-color: $light-silver !important;
+}
+
+.checkout-divider {
+  background-color: $silver-border;
+}
+
+.checkout-note-area {
+  border: 1px solid $rating-delivery-color;
+}
+
+.promo-expiration {
+  color: $menu-border-right !important;
+}
+
+.custom-payment-height {
+  min-height: calc(100vh - 130px) !important;
+}
+
+.solid-border {
+  border-style: solid !important;
+}
+
+.payment-menu {
+  background-color: $payment-menu-bg;
+  max-width: 200px;
+  width: 35%;
+  font-size: 0.9rem !important;
+}
+
+.payment-menu-item {
+  padding: 12px 15px;
+  margin: 5px 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  cursor: pointer;
+  align-items: center;
+
+  &:hover {
+    background-color: $light-silver;
+  }
+}
+
+.payment-menu-item-selected {
+  background-color: $white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-weight: bold;
+}
+
+.select-payment-method-label {
+  margin-left: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.cred-card {
+  border: 1px solid $credit-card-border-color;
+  width: 320px;
+  display: flex;
+  font-size: 0.9rem !important;
+}
+
+.invalid-card {
+  border-color: $qty-minus-btn-color !important;
+}
+
+.payment-btn-container {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.cvv {
+  padding: 5px 10px !important;
+  border: 1px solid $silver-border;
+  width: 80px !important;
+  text-align: center;
+}
+
+.add-payment-method {
+  margin: 30px 0 0 0;
+  color: $add-payment-method-color;
+  cursor: pointer;
+}
+
+.add-upi-id {
+  margin: 10px 0 0 0;
+  color: $add-payment-method-color;
+  cursor: pointer;
+  text-align: left;
+}
+
+.payment-menu-container {
+  width: 50%;
+  max-width: 660px !important;
+  margin-right: 50px;
+  height: calc(100vh - 130px) !important;
+  padding-bottom: 45px;
+}
+
+.card-number-input {
+  background-color: $white;
+  width: 200px !important;
+  border: none !important;
+  border-bottom: 1px solid $black !important;
+}
+
+.expiration-date-input {
+  background-color: $white;
+  width: 90px !important;
+  border: none !important;
+  border-bottom: 1px solid $black !important;
+}
+
+.exp-date-cvv-container {
+  width: 230px;
+}
+
+.promo-btn {
+  color: $auth-color !important;
+  border: 1px dotted $promo-silver;
+}
+
+.delivery-type-container {
+  padding-left: 80px !important;
+  padding-right: 30px !important;
+}
+
+.disabled-time {
+  color: $silver !important;
+}
+
+.card-type-img {
+  width: 52px;
+  height: 50px;
+}
+
+.uploaded-image {
+  width: 100px;
+  height: 100px;
+}
+
+.upi-pay-card {
+  margin-top: 10px;
+  display: flex;
+  border: 1px solid $silver-border;
+  padding: 20px 10px;
+  max-width: 360px;
+  width: 90%;
+  cursor: pointer;
+}
+
+.saved-upi-id {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 335px;
+  height: 60px !important;
+
+  .card-image-container {
+    flex: 1;
+
+    div {
+      padding-left: 10px !important;
+      flex: 1;
+    }
+  }
+}
+
+.selected-upi {
+  border: 1px solid $silver-text !important;
+}
+
+.upi-pay-img {
+  width: 70px;
+  height: 30px;
+}
+
+.bank-container {
+  width: 160px;
+  flex-grow: 1;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  border: 1px solid $silver-border;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $grey;
+  }
+}
+
+.bank-img-container {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hdfc-bank {
+  background-color: #003399;
+}
+
+.axis-bank {
+  background-color: #ad2c5d;
+}
+
+.kotac-bank {
+  background-color: #003875;
+}
+
+.bank-logo:not(.icici-img):not(.sbi-bank-img) {
+  width: 55%;
+  height: 55%;
+  flex-shrink: 0;
+}
+
+.icici-img, .sbi-bank-img {
+  width: 100% !important;
+  height: 100% !important;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.bank-name {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.non-selected-bank {
+  color: $silver;
+}
+
+.selected-bank {
+  background-color: $qty-add-btn-color;
+  border-radius: 50%;
+  color: $white;
+}
+
+.other-banks-btn {
+  border-radius: 0;
+  border: 1px solid $silver-border;
+  width: 280px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.bank-item {
+  width: 278px;
+}
+
+.other-banks-label {
+  width: 235px;
+  text-align: left;
+}
+
+.payment-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  background-color: $white;
+  margin: auto;
+  padding: 20px 40px;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+}
+
+.payment-message {
+  color: $cart-item-text;
+}
+
+.check-payment-icon {
+  color: $button-blue;
+}
+
+.store-img {
+  width: 170px;
+  height: 55px;
+  border-radius: 8px;
+}
+
+.stores-imgs-container {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+
+.continue-shopping-btn {
+  background-color: $subscribe-btn-border;
+}
+
+.track-order-btn {
+  background-color: $qty-minus-btn-color;
+}
+
+.invalid-address {
+  width: 500px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.saved-credit-card {
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $silver-text;
+  }
+}
+
+.saved-credit-card-selected {
+  border: 1px solid $silver-text;
+}
+
+.banks-list {
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+
+.confirm-address-fixed-container {
+  position: fixed;
+  bottom: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-right: 32px;
+}
+
+.confirm-address-btn-container {
+  width: 850px;
+  background-color: $white;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-address-shadow {
+  -webkit-box-shadow: 0px -1px 5px 0px $silver-border;
+  -moz-box-shadow: 0px -1px 5px 0px $silver-border;
+  box-shadow: 0px -1px 5px 0px $silver-border;
+}
+
+
+.upi-id-input {
+  max-width: 200px;
+  width: 100%;
+}
+
+.cost-image {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+.menu-image {
+  width: 25px;
+  height: 25px;
+}
+
+.remove-img-btn {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  background-color: $white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: $qty-minus-btn-color
+}
+
+
+.billing-black-color {
+  color: $auth-color !important;
+}
+
+.billing-black-bg {
+  background-color: $auth-color !important;
+}
+
+.billing-silver-text {
+  color: $silver-text !important;
+}
+
+.billing-grey-text {
+  color: $cart-item-text !important;
+}
+
+.upi-input-wrapper {
+  max-width: 200px;
+  width: 100%
+}

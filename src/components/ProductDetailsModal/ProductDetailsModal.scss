@@ -1,0 +1,140 @@
+@import "../../styles/colors";
+
+.modal-dialog.product-details-modal {
+  max-width: 505px;
+}
+
+.custom-border {
+  border-radius: 50%;
+  border: 1px solid $red;
+  color: red;
+  padding: 0 7px;
+}
+
+.image-lg-holder {
+  height: 160px;
+  width: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-large {
+  max-height: 160px;
+  max-width: 370px;
+}
+
+.product-info {
+  border: 1px solid $products-bg;
+  background-color: $product-price-box;
+  border-radius: 5px;
+  font-size: .9rem;
+  color: $product-price-box-text-color;
+}
+
+.h-25px {
+  height: 25px;
+}
+
+.icon-button {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 0 0;
+}
+
+.add-btn {
+  height: 25px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-qty {
+  font-size: 1rem;
+  background-color: $white;
+  border: 1px solid $silver;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.tab {
+  border: 1px solid $silver-border;
+  border-bottom: none !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: $silver-border;
+  font-size: 0.9rem;
+
+  &:hover {
+    background-color: $light-silver;
+  }
+}
+
+.active-tab {
+  background-color: $white;
+}
+
+.modal-body.product-detail {
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.image-nav-btn {
+  font-size: 1.7rem;
+  color: $rating-delivery-color;
+
+  &:hover {
+    color: $grey;
+  }
+}
+
+.show-image-viewer-btn {
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.product-details-title {
+  color: $product-details-title !important;
+  font-size: 16px !important;
+  flex-grow: 1;
+  padding-left: 30px;
+}
+
+.product-details-close-btn {
+  border-radius: 50%;
+  border: 1px solid $silver-text;
+  color: $silver-text;
+  padding: 0 6px;
+}
+
+.report-btn {
+  color: $menu-border-right !important;
+}
+
+.zoom-btn {
+  color: $checkout-btn-bg-non-empty-cart;
+}
+
+.offer-price {
+  padding: 3px 10px;
+  background-color: $offer-price-bg;
+  border: 1px solid $offer-price-border;
+  font-size: 0.8rem;
+}
+
+.product-label, .product-value {
+  color: $product-labels-color;
+}
+
+.btn-more-2 {
+  margin-left: 18px !important;
+
+  &:hover {
+    background-color: $white !important;
+  }
+}

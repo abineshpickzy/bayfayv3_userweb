@@ -1,0 +1,100 @@
+@import '../../styles/colors';
+
+.faq-nav {
+  display: flex;
+  flex-direction: column;
+
+  .faq-nav-item {
+    padding: 15px;
+    background-color: #ccc;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .faq-nav-active {
+    background-color: #01529b;
+    color: $white;
+    transition: .2s ease-in-out .1s;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 12px;
+      right: -16px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid #01529b;
+    }
+  }
+}
+
+
+.faq-image {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.faq-container-right {
+  .fa-minus {
+    display: none;
+  }
+
+  h5[aria-expanded="true"] {
+    .fa-plus {
+      display: none !important;
+    }
+
+    .fa-minus {
+      display: inline-block !important;
+    }
+  }
+
+  .card {
+    margin-bottom: 10px;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+
+    .card-header {
+      padding: 10px 20px;
+      cursor: pointer;
+
+      h5 {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.tabAccorion .accordion .card-body {
+  margin-top: 15px;
+}
+
+.faq-container {
+  h3 {
+    color: #01529b !important;
+  }
+
+  .tabAccorion {
+    padding: 30px;
+    background-color: #f0efef;
+  }
+
+  .tabAccorion .accordion .card {
+    background: transparent;
+    margin: 15px 0;
+    border: none;
+  }
+
+  .tabAccorion .accordion .card-header, .tabAccorion .accordion .card-body {
+    background: #fff;
+  }
+
+  .card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+  }
+
+  .card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,78 @@
+@import "../../styles/colors";
+
+.partner-image-holder {
+  padding: 50px 30px 0 30px;
+}
+
+;
+
+.partner-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.partner-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.partner-form {
+  width: 100%;
+
+  .form-group {
+    width: 80%;
+  }
+
+  .dropdown {
+    .dropdown-menu {
+      max-height: 200px;
+      overflow-y: auto;
+      right: 120px;
+    }
+
+    .dropdown-toggle {
+      border: 1px solid #ced4da;
+      width: 80%;
+      color: #495057;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .dropdown-selected {
+        width: 90%;
+        display: inline-block;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.enrolment-process-img {
+  width: 100%;
+}
+
+
+.flow-img-container {
+  position: relative;
+  background-color: #ebf1f1;
+  width: 100%;
+}
+
+.review-nav {
+  top: 45%;
+  font-size: 1.7rem;
+  color: $silver-text;
+  position: absolute;
+  cursor: pointer;
+
+  &.left {
+    left: 30px;
+  }
+
+  &.right {
+    right: 30px;
+  }
+}
+

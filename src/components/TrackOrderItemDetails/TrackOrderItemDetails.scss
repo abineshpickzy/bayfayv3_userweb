@@ -1,0 +1,25 @@
+@import "../../styles/colors";
+
+.track-products-details {
+  padding: 10px;
+  width: 100%;
+
+  .go-back-btn {
+    background-color: $white;
+    padding: 0 !important;
+    border: none !important;
+
+    &:hover {
+      border: none !important;
+    }
+  }
+}
+
+.track-products-scroll-container {
+  max-height: calc(100vh - 340px);
+  overflow-y: auto;
+}
+
+.divider-dashed-757575 {
+  border-color: $promo-silver !important;
+}

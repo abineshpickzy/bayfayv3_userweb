@@ -1,0 +1,19 @@
+@import "../../styles/colors";
+
+.send-to-merchant-btn {
+  background-color: $button-blue;
+  border-color: $button-blue;
+  width: 200px;
+  height: 32px;
+  border-radius: 0!important;
+  padding: 0!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.store-rating-stars {
+  i {
+    cursor: pointer;
+  }
+}

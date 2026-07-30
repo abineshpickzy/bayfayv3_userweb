@@ -1,0 +1,48 @@
+@import "../../styles/colors";
+
+.navigation-menu {
+  background-color: $menu-container-bg;
+  border: 1px solid $silver-border;
+  border-right-width: 0 !important;
+  max-width: 220px;
+  width: 35%;
+  font-size: 0.9rem !important;
+  min-height: calc(100vh - 66px);
+  position: relative;
+}
+
+.navigation-menu-item-container {
+  position: fixed;
+  width: 211px;
+}
+
+.navigation-menu-item {
+  padding: 0 15px 0 5px;
+  margin: 10px 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  cursor: pointer;
+  height: 45px;
+  align-items: center;
+
+  &:hover {
+    background-color: $light-silver;
+  }
+}
+
+.navigation-menu-item-selected {
+  background-color: $white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-weight: bold;
+}
+
+.navigation-menu-img {
+  width: 30px;
+  height: 30px;
+}
+
+.orders-count {
+  color: $button-blue;
+}

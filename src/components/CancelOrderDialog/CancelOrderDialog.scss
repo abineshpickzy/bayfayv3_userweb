@@ -1,0 +1,73 @@
+@import "../../styles/colors";
+
+.cancel-order-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cancel-order-footer, .step-2 {
+  .btn {
+    width: 150px;
+    height: 32px;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+
+    &.btn-light {
+      border: 1px solid $rating-delivery-color;
+    }
+
+    &.btn-primary {
+      background-color: $button-blue !important;
+    }
+  }
+}
+
+.cancel-order-dialog {
+  .modal-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+
+    &.border-bottom {
+      border-bottom: 1px solid $silver-border-2 !important;
+    }
+
+    &.no-border {
+      border-bottom-width: 0 !important;
+    }
+  }
+
+  textarea {
+    border: 1px solid $checkout-btn-bg-empty-cart;
+  }
+
+  .form-check-label {
+    color: $cart-item-text;
+  }
+}
+
+.refund-text {
+  font-size: 17px !important;
+  color: $black;
+}
+
+.refund-text-small {
+  font-size: 14px !important;
+  color: $grey;
+}
+
+.refund-bay-fay-cash-btn {
+  background-color: $button-blue !important;
+}
+
+.refund-to-bank-acc-btn {
+  color: $menu-border-right !important;
+  border-color: $menu-border-right !important;
+
+  &:hover {
+    color: $white !important;
+  }
+}

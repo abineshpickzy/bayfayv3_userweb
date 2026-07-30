@@ -1,0 +1,89 @@
+@import "../../styles/colors";
+
+.help-modal {
+  top: 0 !important;
+  bottom: 0 !important;
+  overflow-y: auto;
+  width: 380px !important;
+  padding-bottom: 30px;
+  background-color: $white;
+  position: relative;
+
+  .fa-chevron-up {
+    display: none;
+  }
+
+  .expand-collapse-btn[aria-expanded="true"] {
+    .fa-chevron-down {
+      display: none !important;
+    }
+
+    .fa-chevron-up {
+      display: inline-block !important;
+    }
+  }
+
+  .card {
+    border: none !important;
+
+    .card-body {
+      border-bottom: 1px solid $silver-border;
+      background-color: $light-silver;
+      padding: 15px 40px;
+    }
+  }
+}
+
+.to-help-title {
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.close-help-modal {
+  margin-left: 10px !important;
+  margin-top: 10px !important;
+}
+
+.help-content {
+  margin-top: 10px;
+  height: calc(100% - 75px);
+  overflow-y: auto;
+}
+
+.expand-collapse-btn {
+  width: 100%;
+  border-radius: 0 !important;
+  background-color: $white;
+  border: none !important;
+  color: $silver-text;
+  outline: none !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.help-actions {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem !important;
+
+  .help-action {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $silver-border-1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $silver-text;
+    }
+  }
+}

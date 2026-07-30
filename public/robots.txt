@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /payments
+Disallow: /profile
+Disallow: /purchase-history
+Disallow: /track-order
+Sitemap: https://www.bayfay.com/sitemap.xml

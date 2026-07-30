@@ -1,0 +1,110 @@
+@import "../../styles/colors";
+
+.track-order-item-shop-image {
+  border-radius: 10px;
+  width: 80px !important;
+  height: 80px !important;
+}
+
+.to-shop-name {
+  font-size: 1rem;
+  color: $auth-color;
+  font-weight: bold;
+  min-height: 24px;
+}
+
+.to-shop-address {
+  font-size: 0.8rem;
+  color: $silver-text;
+}
+
+.track-order-item {
+  width: 100%;
+  border: 1px solid $credit-card-border-color !important;
+  margin-bottom: 15px;
+}
+
+.horn-img-size {
+  max-width: 40px;
+  max-height: 40px;
+  cursor: pointer;
+}
+
+.map-img-size {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.color-purple {
+  color: $purple;
+}
+
+.track-order-buttons {
+  .btn {
+    height: 30px;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    border-radius: 2px;
+  }
+
+  .btn-warning {
+    background-color: $orange !important;
+    border: 1px solid $orange-dark;
+  }
+}
+
+.order-status-color {
+  color: $order-status-color
+}
+
+.total-paid-label {
+  font-weight: bold;
+}
+
+.track-order-blue {
+  color: $track-order-blue;
+}
+
+.right-arrow-color {
+  color: $checkout-btn-bg-empty-cart;
+}
+
+.custom-divider-bg {
+  background-color: $silver-border !important;
+}
+
+.contact-shop-btn {
+  color: $button-blue !important;
+  border: 1px solid $subscribe-btn-bg !important;
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.help-btn {
+  background-color: $shop-rating-start-color !important;
+  border: 1px solid $orange-border !important;
+}
+
+.cancel-order-btn {
+  color: $menu-border-right !important;
+  border: 1px solid $menu-border-right !important;
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.disabled-buzz {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255,255,255,.5);
+}

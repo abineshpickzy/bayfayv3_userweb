@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+    <script type="text/javascript" src="https://checkout.razorpay.com/v1/razorpay.js"></script>
+    <link rel="icon" href="/favicon.ico" id="defaultFavIcon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHK4QeuEk8smdq4CQlpdDilsTxBtlwpNI&libraries=places"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-170078099-1"
+    ></script>
+    <script>
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (window.dataLayer = window.dataLayer || []),
+        gtag("js", new Date()),
+        gtag("config", "UA-170078099-1");
+    </script>
+    <title>
+      <%= title %>
+    </title>
+    <meta
+      name="title"
+      content="<%= title %>"
+      data-react-helmet="true"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= web_url %>">
+    <link rel="amphtml" href="<%= web_url %>">
+
+    <meta name="og_site_name" property="og:site_name" content="bayfay.com" />
+    <meta
+      name="og_title"
+      property="og:title"
+      content="<%= title %>"
+    />
+    <meta name="description" property="description" content="<%= description %>" />
+    <meta name="keywords" property="keywords" content="<%= keywords %>" />      
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="<%= description %>"
+    />
+    <meta name="og_url" property="og:url" content="<%= web_url %>" />
+    <meta
+      property="og:image"
+      content="<%= icon_url.replace('&amp;','&') %>"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="https://www.bayfay.com/icons/images/icon-192x192.png">
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="https://www.bayfay.com/icons/images/icon-192x192.png" >
+    <meta name="msapplication-TileColor" content="#1d9bf6" />
+    <meta
+      name="msapplication-TileImage"
+      content="https://www.bayfay.com/icons/images/mstile-150x150.png"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      id="image/x-icon21"
+      href="https://www.bayfay.com/icons/images/favicon-16x16.ico">
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://www.bayfay.com/icons/images/favicon-32x32.ico">
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.bayfay.com/icons/images/favicon-96x96.png">
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="https://www.bayfay.com/icons/images/apple-touch-icon-72x72.png">
+    <%for (var i = 0; i < cssFiles.length; i++) { %>
+    <link href="/static/css/<%= cssFiles[i] %>" rel="stylesheet">
+    <%} %>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      !(function (e) {
+        function r(r) {
+          for (
+            var n, f, l = r[0], a = r[1], p = r[2], c = 0, s = [];
+            c < l.length;
+            c++
+          )
+            (f = l[c]),
+              Object.prototype.hasOwnProperty.call(o, f) &&
+                o[f] &&
+                s.push(o[f][0]),
+              (o[f] = 0);
+          for (n in a)
+            Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
+          for (i && i(r); s.length; ) s.shift()();
+          return u.push.apply(u, p || []), t();
+        }
+        function t() {
+          for (var e, r = 0; r < u.length; r++) {
+            for (var t = u[r], n = !0, l = 1; l < t.length; l++) {
+              var a = t[l];
+              0 !== o[a] && (n = !1);
+            }
+            n && (u.splice(r--, 1), (e = f((f.s = t[0]))));
+          }
+          return e;
+        }
+        var n = {},
+          o = { 1: 0 },
+          u = [];
+        function f(r) {
+          if (n[r]) return n[r].exports;
+          var t = (n[r] = { i: r, l: !1, exports: {} });
+          return e[r].call(t.exports, t, t.exports, f), (t.l = !0), t.exports;
+        }
+        (f.m = e),
+          (f.c = n),
+          (f.d = function (e, r, t) {
+            f.o(e, r) ||
+              Object.defineProperty(e, r, { enumerable: !0, get: t });
+          }),
+          (f.r = function (e) {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(e, "__esModule", { value: !0 });
+          }),
+          (f.t = function (e, r) {
+            if ((1 & r && (e = f(e)), 8 & r)) return e;
+            if (4 & r && "object" == typeof e && e && e.__esModule) return e;
+            var t = Object.create(null);
+            if (
+              (f.r(t),
+              Object.defineProperty(t, "default", { enumerable: !0, value: e }),
+              2 & r && "string" != typeof e)
+            )
+              for (var n in e)
+                f.d(
+                  t,
+                  n,
+                  function (r) {
+                    return e[r];
+                  }.bind(null, n)
+                );
+            return t;
+          }),
+          (f.n = function (e) {
+            var r =
+              e && e.__esModule
+                ? function () {
+                    return e.default;
+                  }
+                : function () {
+                    return e;
+                  };
+            return f.d(r, "a", r), r;
+          }),
+          (f.o = function (e, r) {
+            return Object.prototype.hasOwnProperty.call(e, r);
+          }),
+          (f.p = "/");
+        var l = (this["webpackJsonpshopor-frontend-react"] =
+            this["webpackJsonpshopor-frontend-react"] || []),
+          a = l.push.bind(l);
+        (l.push = r), (l = l.slice());
+        for (var p = 0; p < l.length; p++) r(l[p]);
+        var i = a;
+        t();
+      })([]);
+    </script>
+    <%for (var i = 0; i < jsFiles.length; i++) { %>
+      <script src="/static/js/<%= jsFiles[i] %>"></script>
+      <%} %>
+  </body>
+</html>

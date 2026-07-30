@@ -1,0 +1,41 @@
+@import "../styles/colors";
+
+.shopping-min-height {
+  min-height: calc(100vh - 325px);
+}
+
+.empty-stores-info {
+  width: calc(100% - 30px);
+}
+
+.location-warning-img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.location-warning-text {
+  font-size: 1.3rem;
+  color: $menu-border-right;
+  font-weight: 600;
+  text-align: center;
+}
+
+.location-warning-close {
+  width: 60px;
+  display: flex;
+  justify-content: flex-end;
+  color: $menu-border-right !important;
+}
+
+.location-warning-container {
+  padding: 10px 30px;
+  border: 1px dashed $menu-border-right;
+  margin-bottom: 15px !important;
+  justify-content: space-between;
+}
+
+.shops-loader-container {
+  height: calc(100vh - 195px);
+}

@@ -1,0 +1,54 @@
+@import "../../styles/colors";
+
+.help-title {
+  color: #01529b;
+}
+
+.help-description {
+  color: #707070;
+  font-size: 18px;
+  margin-bottom: 30px
+}
+
+.help-container {
+  background-color: #09498a;
+  padding: 20px;
+  width: 100%;
+
+  .fa-minus {
+    display: none;
+  }
+
+  h5[aria-expanded="true"] {
+    .fa-plus {
+      display: none !important;
+    }
+
+    .fa-minus {
+      display: inline-block !important;
+    }
+  }
+
+  .card {
+    margin-bottom: 10px;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+
+    .card-header {
+      padding: 10px 20px;
+      cursor: pointer;
+
+      h5 {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.tabAccorion .accordion .card-body {
+  margin-top: 15px;
+}
+
+.fa-plus, .fa-minus {
+  float: right;;
+}

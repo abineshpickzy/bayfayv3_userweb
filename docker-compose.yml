@@ -1,0 +1,59 @@
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - web-root:/var/www/html
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../storeadminweb/nginx.conf:/etc/nginx/conf.d/storeadminweb.conf:ro
+      - ../storeadminweb:/var/www/storeadminweb
+      - dhparam:/etc/ssl/certs
+    networks:
+      - app-network
+    depends_on:
+      - bayfay
+
+  bayfay:
+    container_name: bayfay
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bayfay
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    networks:
+      - app-network
+
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/storeadminweb
+    depends_on:
+      - nginx
+    command: certonly --webroot --webroot-path=/var/www/storeadminweb --register-unsafely-without-email  --agree-tos --no-eff-email --force-renewal -d store.bayfay.com -d www.store.bayfay.com
+
+
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local
+  dhparam:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/centos/bayfay/bayfay-customer-frontend/dhparam/
+      o: bind
+networks:
+  app-network:
+    driver: bridge
+

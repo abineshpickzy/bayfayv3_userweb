@@ -1,0 +1,51 @@
+@import "../../styles/colors";
+
+
+.call-btn {
+  background-color: $qty-add-btn-color;
+  border-color: $qty-add-btn-color;
+  color: $white;
+  width: 200px;
+
+  &:hover {
+    background-color: $qty-add-btn-color;
+    border-color: $qty-add-btn-color;
+    color: $white;
+  }
+}
+
+.send-btn {
+  background-color: $send-support-btn;
+  border-color: $send-support-btn;
+  color: $white;
+  width: 200px;
+
+  &:hover {
+    background-color: $send-support-btn;
+    border-color: $send-support-btn;
+    color: $white;
+  }
+}
+
+.blue-input {
+  input, textarea {
+    border-color: $support-blue-input-border;
+  }
+  textarea {
+    border: 1px solid $support-blue-input-border;
+
+    &:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25)
+    }
+  }
+}
+
+
+.voice-support-message {
+  color: $menu-border-right;
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,26 @@
+@import "../../styles/colors";
+
+.text-ad-container {
+  width: 80%;
+  max-width: 650px;
+  height: 150px;
+  margin-top: 20px;
+  background-color: $white;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ad-shop-img {
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.ad-details {
+  border: 1px solid $silver-border;
+  align-items: start;
+  justify-content: start;
+  margin-left: 10px;
+}

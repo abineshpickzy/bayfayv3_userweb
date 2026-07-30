@@ -1,0 +1,152 @@
+@import "../../styles/colors";
+
+.right-sidebar {
+  width: 250px;
+  height: calc(100vh - 65px);
+  position: fixed;
+  right: 0;
+  top: 42px;
+  box-sizing: border-box;
+  background-color: $light-silver;
+  border-left: 1px solid $silver-border-1;
+  z-index: 99998;
+}
+
+.droppingArea {
+  border: 2px solid $drag-color !important;
+}
+
+.border-transparent-2px {
+  border: 2px solid transparent;
+}
+
+.divider-cart {
+  width: 75%;
+  height: 2px;
+  background-color: $silver;
+  margin: auto;
+}
+
+.checkout-btn {
+  border-radius: 0;
+  color: $white;
+  height: 35px !important;
+
+  &.empty-cart {
+    background-color: $checkout-btn-bg-empty-cart !important;
+  }
+
+  &.non-empty-cart {
+    background-color: $checkout-btn-bg-non-empty-cart !important;
+  }
+
+  &:hover {
+    color: $silver-text;
+  }
+}
+
+.height-35px {
+  height: 35px;
+}
+
+.width-250px {
+  width: 250px;
+}
+
+.delivery-mode {
+  top: 2px;
+  left: 5px;
+}
+
+.drop-spinner {
+  background-color: rgba(255, 255, 255, .5);
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-icon {
+  padding: 0 !important;
+  margin-right: 10px;
+  font-size: 1.4rem;
+  width: 40px;
+}
+
+.delivery-unchecked {
+  width: 25px;
+  height: 25px;
+  border: 1px solid $dark-grey;
+  border-radius: 50%;
+}
+
+.delivery-checked {
+  font-size: 1.6rem;
+}
+
+.delivery-hover {
+  display: none;
+}
+
+.disabled-delivery-mode {
+  background-color: $silver-border;
+  color: $grey !important;
+
+  .delivery-unchecked {
+    border-color: $silver !important;
+  }
+
+  &:hover {
+    background-color: $silver-border;
+  }
+}
+
+.delivery-choices:not(.disabled-delivery-mode) {
+  &:hover {
+    .delivery-hover {
+      display: inline-block !important;
+    }
+
+    .delivery-unchecked {
+      display: none !important;
+    }
+  }
+}
+
+.view-billing-button {
+  border: 1px solid $silver-border-1 !important;
+  color: $button-blue !important;
+}
+
+.customize-order-button {
+  border: 1px solid $silver-border-1 !important;
+  color: $silver-text !important;
+  border-radius: 0 !important;
+}
+
+.subscribe-button {
+  background-color: $subscribe-btn-bg !important;
+  border: 1px solid $subscribe-btn-border !important;
+  color: $white;
+
+  &:hover {
+    color: $silver-text;
+  }
+}
+
+.delivery-mode-button {
+  border: 1px solid $silver-border-1 !important;
+}
+
+.padding-top-10px {
+  padding-top: 10px !important;
+}
+
+.cart-empty-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

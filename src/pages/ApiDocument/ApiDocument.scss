@@ -1,0 +1,83 @@
+@import "../../styles/colors";
+
+.api-doc-menu {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $silver-border;
+  width: 180px;
+  height: fit-content;
+  position: fixed;
+  background-color: $white;
+
+  a {
+    width: 100%;
+    padding: 7px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $light-silver;
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $silver-border;
+    }
+  }
+}
+
+.api-doc-content {
+  margin-left: 200px;
+  padding-left: 100px;
+}
+
+.api-doc-screenshot {
+  width: 550px;
+  height: 460px;
+}
+
+.code {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border: none;
+  background-color: $silver-border;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace !important;
+  font-size: 14px;
+
+  code {
+    color: $silver-text !important;
+  }
+
+  &:hover {
+    background-color: $silver-border;
+  }
+}
+
+
+.code-silver {
+  color: #666;
+}
+
+.hljs-string {
+  color: #047d65;
+  margin-left: 10px;
+}
+
+.hljs-attr {
+  color: #1d75b3;
+  margin-right: 5px;
+}
+
+.json-content {
+  margin-left: 50px;
+
+  &.inner-content {
+    margin-left: 150px;
+  }
+}
+
+.api-doc-table {
+  th, td {
+    padding: 10px
+  }
+}

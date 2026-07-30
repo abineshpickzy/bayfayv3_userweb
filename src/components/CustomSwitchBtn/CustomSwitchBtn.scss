@@ -1,0 +1,31 @@
+@import "../../styles/colors";
+
+.switch-btn {
+  width: 50px;
+  height: 23px;
+  border-radius: 20px;
+  border: 1px solid $silver-border;
+  position: relative;
+}
+
+.checked {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  left: 1px;
+  top: 1px;
+  display: inline-block;
+  position: absolute;
+  background-color: $qty-add-btn-color ;
+}
+
+.unchecked {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  right: 1px;
+  top: 1px;
+  display: inline-block;
+  position: absolute;
+  background-color: $checkout-btn-bg-empty-cart ;
+}

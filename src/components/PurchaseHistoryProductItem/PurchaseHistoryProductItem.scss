@@ -1,0 +1,11 @@
+@import "../../styles/colors";
+
+.product-review-btn {
+  padding: 2px 20px;
+  background-color: $orange-border;
+  border-color: $orange-border;
+  color: $white;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  float: right;
+}

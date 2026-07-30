@@ -1,0 +1,71 @@
+@import "../../styles/colors";
+
+.profile-label {
+  color: $shop-name-color;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.username-label {
+  color: $shop-name-color;
+}
+
+.user-profile {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  border: 1px solid $credit-card-border-color;
+}
+
+.profile-img {
+  width: 70px;
+  height: 70px;
+}
+
+.edit-profile-label {
+  color: $add-payment-method-color;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 2px 10px;
+  border: 1px solid transparent;
+
+
+  &:hover {
+    border-color: $silver-border;
+  }
+}
+
+.edit-profile-btn {
+  padding: 2px 35px !important;
+  background-color: $white;
+  border-radius: 0 !important;
+  border: 1px solid $rating-delivery-color;
+  color: $add-payment-method-color;
+
+  &:hover {
+    color: $add-payment-method-color;
+  }
+}
+
+.add-more-locations-btn {
+  padding: 2px 10px !important;
+  background-color: $white;
+  border-radius: 0 !important;
+  border: 1px solid $rating-delivery-color;
+  color: $add-payment-method-color;
+
+  &:hover {
+    color: $add-payment-method-color;
+  }
+}
+
+.address-item-wrapper {
+  margin-top: 20px;
+  width: 47%;
+}
+
+.verified-label {
+  color: $payment-green-btn;
+}

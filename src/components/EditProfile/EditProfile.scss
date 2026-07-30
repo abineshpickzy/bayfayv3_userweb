@@ -1,0 +1,70 @@
+@import "../../styles/colors";
+
+
+.edit-profile-title {
+  width: 100%;
+  padding: 15px 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $shop-name-color;
+  font-size: 1.2rem;
+}
+
+.field-icon {
+  font-size: 2rem;
+  color: $checkout-btn-bg-empty-cart;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.edit-field-btn {
+  background-color: $white;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.field-icon-holder {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verify-email-btn {
+  padding: 0 10px;
+  border-radius: 0;
+  height: 30px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $menu-border-right;
+  border-color: $silver-border !important;
+}
+
+.otp-input {
+  border-radius: 0;
+  height: 30px !important;
+  width: 170px;
+}
+
+.verified-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 30px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.email-id-label {
+  max-width: 190px;
+}

@@ -1,0 +1,20 @@
+@import "../../styles/colors";
+
+.order-submit-btn {
+  width: 230px;
+  height: 32px;
+  border-radius: 0;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-submit-btn-colors {
+  border-color: $subscribe-btn-bg !important;
+  background-color: $button-blue !important;
+}
+
+.empty-container-label {
+  padding-top: 200px;
+}

@@ -1,0 +1,150 @@
+@import "../../styles/colors";
+
+.modal-dialog.customize-order-modal {
+  max-width: 505px;
+}
+
+.modal-body.customize-order {
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+  max-width: 100%;
+  flex-grow: 1;
+}
+
+.product-selected-shops {
+  width: 100%;
+  display: flex;
+  padding: 5px .5rem 5px 10px;
+  background-color: $light-silver;
+  border-top: 1px solid $silver-border;
+  border-bottom: 1px solid $silver-border;
+  justify-content: space-between;
+}
+
+.wh-20px {
+  width: 20px;
+  height: 20px;
+}
+
+.shop-image-holder {
+  width: 100px;
+  height: 100px;
+  padding: 2px;
+  flex-shrink: 0;
+  background-color: $white;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: none !important;
+}
+
+.shop-image {
+  height: 100%;
+}
+
+.shop-bottom-border {
+  border-bottom: 1px solid $silver;
+}
+
+.quantity {
+  width: 60px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.width-60px {
+  width: 60px;
+}
+
+.details-btn {
+  height: 36px;
+  width: 100%;
+  padding: 0 25px 0 10px;
+  border: none;
+  border-radius: 0;
+  background-color: $light-silver;
+  font-size: .9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none !important;
+}
+
+.details-down-icon {
+  font-size: 1.3rem !important;
+  color: $grey;
+}
+
+.select-btn {
+  background-color: $qty-add-btn-color;
+  color: white;
+  padding: 5px 40px;
+}
+
+.cancel-select-btn {
+  background-color: $white;
+  color: $product-price-box-text-color;
+  padding: 5px 40px;
+  border: 1px solid $silver-border;
+}
+
+.cor-spinner-container {
+  width: 100%;
+  height: 200px;
+  background-color: $white;
+}
+
+.qty-width {
+  width: 50px;
+}
+
+.price-width {
+  width: 60px;
+  text-align: right;
+  display: inline-block;
+}
+
+.product-border-bottom {
+  border-bottom: 1px solid $silver-border;
+}
+
+.product-name {
+  width: calc(100% - 50px);
+  text-align: left;
+  display: inline-block;
+}
+
+.total-top-border {
+  border-top: 1px solid $silver-border;
+}
+
+.label-width {
+  width: calc(100% - 50px);
+  text-align: left;
+  display: inline-block;
+}
+
+.product-name-qty {
+  width: calc(100% - 80px);
+}
+
+.co-shop-image {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.rating-container {
+  width: 135px;
+  flex-shrink: 0;
+}
+
+.store-name {
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.rounded-10px {
+  border-radius: 10px;
+}

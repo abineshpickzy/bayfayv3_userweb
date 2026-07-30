@@ -1,0 +1,141 @@
+@import "../../styles/colors";
+
+.canvas-scratch {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 70px;
+  bottom: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.scratch-code {
+  position: absolute;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+  top: 70px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.scratch-card-content {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scratch-card-modal {
+  margin-top: 0 !important;
+  width: 100vw;
+  height: 100vh;
+  max-width: unset !important;
+}
+
+.scratch-card-modal-content {
+  background-color: rgba(3, 6, 23, 0.28);
+  overflow-y: auto;
+}
+
+.scratch-card-modal-body {
+  width: 800px;
+  height: 90%;
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.close-scratch-card-modal {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  font-size: 1.7rem;
+  color: $white;
+  cursor: pointer;
+}
+
+.ads-images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ad-image {
+  width: 80%;
+  max-width: 650px;
+  height: 150px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.reward-title {
+  margin-top: 35px;
+  color: $white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.swipe-label {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: $white;
+}
+
+.scratch-reward-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.reward-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: $black;
+  margin-top: 10px;
+  width: 140px;
+}
+
+.promo-value {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: $offer-price-border;
+  border: 1px solid $button-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-type-label {
+  color: $promo-silver;
+  font-size: 1rem;
+}
+
+.promo-value-label {
+  font-size: 1.4rem;
+}
+
+.promo-code-label {
+  margin-right: 5px;
+  color: $promo-silver;
+}
+
+.promo-code-value {
+  color: $order-status-color;
+}
+
+.promo-note {
+  margin-top: 5px;
+  color: $menu-border-right;
+}

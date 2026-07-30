@@ -1,0 +1,37 @@
+@import "../../styles/colors";
+
+.border-bottom-silver {
+  border-bottom: 1px solid $silver-border;
+}
+
+.cod-net-price {
+  color: $payment-green-btn;
+}
+
+.cod-delivery-date {
+  color: $silver-text;
+}
+
+.cod-make-payment {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cod-already-paid-btn, .cod-done-btn {
+  width: 200px;
+  height: 32px;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cod-done-btn {
+  border: 1px solid $silver-border-2;
+}
+
+.cod-already-paid-btn {
+  background-color: $button-blue !important;
+  border-color: $button-blue !important;
+}

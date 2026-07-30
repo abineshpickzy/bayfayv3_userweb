@@ -1,0 +1,10 @@
+@import "../../styles/colors";
+
+
+textarea.additional-message:disabled {
+  background-color: $light-silver;
+}
+
+.additional-message-error {
+  border: 1px solid $menu-border-right;
+}

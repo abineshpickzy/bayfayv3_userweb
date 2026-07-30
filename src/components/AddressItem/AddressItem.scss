@@ -1,0 +1,47 @@
+@import "../../styles/colors";
+
+.address-item {
+  width: 100%;
+  border: 1px solid $credit-card-border-color;
+  display: flex;
+  padding: 15px 10px 15px 0;
+}
+
+.location-type-icon {
+  color: $product-price-box-text-color
+}
+
+.delete-address-btn {
+  color: $menu-border-right;
+  border: 1px solid $delete-address-btn-border;
+  margin-right: 20px;
+
+  &:hover {
+    color: $menu-border-right;
+  }
+}
+
+.edit-address-btn {
+  color:$button-blue;
+  border: 1px solid $subscribe-btn-bg;
+
+  &:hover {
+    color:$button-blue;
+  }
+}
+
+
+.edit-address-btn, .delete-address-btn {
+  padding: 2px 15px;
+  background-color: white;
+  border-radius: 0;
+}
+
+
+.address-type-label {
+  color: $shop-name-color;
+}
+
+.address-color {
+  color: $cart-item-text;
+}

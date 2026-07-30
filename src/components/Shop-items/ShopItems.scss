@@ -1,0 +1,10 @@
+@import "../../styles/colors";
+
+.tooltip-btn {
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+    border: none;
+  }
+}

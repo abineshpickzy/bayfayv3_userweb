@@ -1,0 +1,41 @@
+@import "../../styles/colors";
+
+.replacement-label {
+  color: $menu-border-right;
+  margin-right: 10px;
+  margin-left: 120px;
+}
+
+.replacement-date {
+  color: $order-status-color;
+}
+
+.write-store-review-btn {
+  border: $button-blue;
+  background-color: $button-blue;
+  border-radius: 20px;
+  padding: 3px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-left: 35px;
+
+  &:hover {
+    border: $button-blue;
+    background-color: $button-blue;
+  }
+}
+
+.cancelled-order {
+  color: $menu-border-right;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+.delivered-date {
+  color: $payment-green-btn;
+}
+
+.cancelled-date {
+  color: $menu-border-right;
+}

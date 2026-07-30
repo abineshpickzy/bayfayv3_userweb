@@ -1,0 +1,67 @@
+@import "../../styles/colors";
+
+
+.custom-rounded {
+  border-radius: 5px !important;
+}
+
+.grey {
+  color: $grey;
+}
+
+.search-icon {
+  z-index: 9999;
+  top: 12px;
+  left: 15px;
+  font-size: 1rem;
+}
+
+.search-product {
+  border: 1px solid $silver-border-1 !important;
+}
+
+.product-category {
+  background-color: $white;
+  display: flex;
+  align-items: center;
+}
+
+.product-list {
+  background-color: $white;
+}
+
+.no-products {
+  height: calc(100vh - 125px);
+  padding-top: 100px;
+}
+
+.delivery-warning-message {
+  width: calc(100% - 30px);
+}
+
+.delivery-warning {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: $delivery-warning-bg;
+  border: 1px solid $delivery-warning-border-color;
+  color: $delivery-warning-color !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-delivery-warning {
+  color: $delivery-warning-color;
+}
+
+.products-list-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 125px);
+}
+
+.clear-search-input {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 99;
+}

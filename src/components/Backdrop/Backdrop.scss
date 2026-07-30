@@ -1,0 +1,48 @@
+@import "../../styles/colors";
+
+.Backdrop {
+  width: 100%;
+  position: fixed;
+  border: 1px solid $modal-border;
+  box-shadow: 0 2px 2px $modal-shadow;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.header-not-clickable {
+  height: 100%;
+  z-index: 99999;
+}
+
+.header-clickable {
+  height: calc(100% - 42px);
+  margin-top: 42px;
+  padding-top: 0 !important;
+  z-index: 99998;
+}
+
+.defaultBg {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.transparentBg {
+  background-color: transparent;
+}
+
+.BackdropOpen {
+  display: flex;
+  justify-content: center;
+}
+
+.BackdropClosed {
+  display: none;
+}
+
+.z-index-9999999 {
+  z-index: 9999999 !important;
+}

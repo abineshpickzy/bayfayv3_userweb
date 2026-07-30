@@ -1,0 +1,26 @@
+@import "../../styles/colors";
+
+.image-lg {
+  max-height: calc(100vh - 200px);
+  max-width: calc(100vw - 400px);
+}
+
+.full-image-container {
+  width: calc(100vw - 300px);
+  height: calc(100vh - 200px);
+}
+
+.image-viewer-nav-btn {
+  font-size: 1.9rem;
+  color: $silver;
+
+  &:hover {
+    color: $grey;
+  }
+}
+
+.images-viewer {
+  max-width: unset !important;
+  min-width: 850px;
+  width: fit-content;
+}

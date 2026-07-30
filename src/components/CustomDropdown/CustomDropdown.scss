@@ -1,0 +1,63 @@
+@import "../../styles/colors";
+
+.custom-dropdown {
+  width: 100%;
+  background-color: $white;
+  cursor: pointer;
+  padding: 5px 10px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: $silver-hover;
+  }
+}
+
+.child-dropdown {
+  width: 100%;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: $silver-hover;
+  }
+}
+
+.child-container {
+  width: 100%;
+  padding-left: 10px;
+  background-color: $light-silver;
+  cursor: pointer;
+}
+
+.selected-item {
+  background: $menu-color;
+  color: #d89fb6;
+  border-right: 4px solid $menu-border-right;
+  font-weight: bold;
+
+  .rotate {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: transform 0.25s linear;
+  }
+}
+
+.value {
+  flex: 1;
+  display: inline-block;
+}
+
+.menu-icon {
+  width: 10px;
+  margin-left: 10px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.silver-bg {
+  background-color: $menu-color-children;
+}

@@ -1,0 +1,194 @@
+@import "../../styles/colors";
+
+.apply-promo-container-modal {
+  transition: all 0.5s ease-out;
+}
+
+.apply-promo-container {
+  right: 0;
+  top: 43px;
+  bottom: 0;
+  width: 450px;
+  background-color: $light-silver;
+  -webkit-box-shadow: -2px 0px 5px 0px rgb(150, 150, 150);
+  -moz-box-shadow: -2px 0px 5px 0px rgb(150, 150, 150);
+  box-shadow: -2px 0px 5px 0px rgb(150, 150, 150);
+}
+
+.modalOpen {
+  animation: openPromoModal 0.5s ease-out forwards;
+}
+
+.modalClosed {
+  animation: closePromoModal 0.5s ease-out forwards;
+}
+
+.fade-slide-enter-active {
+  animation: openPromoModal 0.5s ease-out forwards;
+}
+
+.fade-slide-exit-active {
+  animation: closePromoModal 0.5s ease-out forwards;
+}
+
+@keyframes openPromoModal {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes closePromoModal {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(60%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.closeModalIcon {
+  margin-left: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.close-apply-promo {
+  background-color: $light-silver;
+}
+
+.margin-top-70px {
+  margin-top: 70px;
+}
+
+.items-wrapper {
+  height: calc(100vh - 110px) !important;
+  overflow-y: auto !important;
+}
+
+.max-width {
+  width: 100%;
+  background-color: white;
+}
+
+.promo-box-shadow {
+  -webkit-box-shadow: 0px 0 2px 0px $rating-delivery-color;
+  -moz-box-shadow: 0px 0 2px 0px $rating-delivery-color;
+  box-shadow: 0px 0 2px 0px $rating-delivery-color;
+
+  &:not(.disabled-promo):hover {
+    -webkit-box-shadow: 0px 0 2px 0px $product-details-title;
+    -moz-box-shadow: 0px 0 2px 0px $product-details-title;
+    box-shadow: 0px 0 2px 0px $product-details-title;
+  }
+}
+
+.promo-shop-image {
+  border-radius: 5px;
+  max-width: 100px;
+}
+
+.img-dimensions {
+  width: 100px;
+}
+
+.promo-code {
+  border: 1px solid $orange-light;
+  background-color: $lightest-orange;
+  color: $cart-item-text;
+  font-weight: bolder;
+  width: 135px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($lightest-orange, .5);
+  }
+}
+
+.promo-shop-image {
+  width: 100px !important;
+}
+
+.promo-discount {
+  color: $promo-silver;
+}
+
+.promo-amount-color {
+  color: $cart-item-text;
+}
+
+.apply-code-input-group {
+  height: 45px !important;
+
+  input {
+    height: calc(100% - 1px);
+    font-size: 1.2rem;
+    border-left: 1px solid $silver-border;
+    border-top: 1px solid $silver-border;
+    border-bottom: 1px solid $silver-border;
+    border-right: none;
+  }
+
+  .apply-code-btn {
+    background-color: $button-blue;
+    color: $white;
+    border-right: 1px solid $silver-border;
+    border-top: 1px solid $silver-border;
+    border-bottom: 1px solid $silver-border;
+  }
+}
+
+.promo-shop-title {
+  color: $cart-item-text !important;
+  text-align: left;
+  line-height: initial;
+  margin-bottom: 5px;
+}
+
+.promo-shop-info {
+  color: $subscribe-btn-border !important;
+}
+
+.promo-shop-info2 {
+  color: $silver-text !important;
+}
+
+.promo-code-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.promo-code-container-open {
+  display: flex;
+}
+
+.promo-code-container-closed {
+  display: none;
+}
+
+.disabled-promo {
+  opacity: 0.5;
+}
+
+.promo-input {
+  text-align: center;
+  font-size: 1.1rem !important;
+}
+
+.max-limit {
+  color: $add-payment-method-color;
+}

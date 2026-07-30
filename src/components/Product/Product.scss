@@ -1,0 +1,97 @@
+@import "../../styles/colors";
+
+.card.product-card {
+  border: none;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  background-color: $white !important;
+  height: max-content;
+  flex-grow: 1;
+  max-width: 300px;
+
+  &:hover {
+    box-shadow: 0 1px 2px 0 $rating-delivery-color;
+  }
+}
+
+.block {
+  display: block;
+}
+
+.card-body.product {
+  padding: 0.25rem;
+  width: max-content;
+  max-width: 140px;
+  height: 40px !important;
+}
+
+.normal-line-height {
+  line-height: normal;
+}
+
+.btn-rounded {
+  border-radius: 2rem;
+}
+
+.btn-small {
+  width: 70px;
+}
+
+.icon-button {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 0 0;
+}
+
+.add-btn {
+  height: 25px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $silver-border-1;
+  border-radius: 1px;
+  color: $checkout-btn-bg-non-empty-cart;
+  background-color: $white;
+  width: 60px;
+}
+
+.hover-opacity {
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.isDragged {
+  border: 1px solid $drag-color !important;
+}
+
+.decrease-btn {
+  background-color: $qty-minus-btn-color !important;
+  color: $white;
+}
+
+.increase-btn {
+  background-color: $qty-add-btn-color !important;
+  color: $white;
+}
+
+.product-offer {
+  position: absolute;
+  top: 3px;
+  left: -15px;
+  background-color: rgba(255, 235, 59, 0.85);
+  color: $black;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  padding: 1px 5px;
+}
+
+.product-image {
+  max-height: 140px;
+  max-width: 200px;
+}

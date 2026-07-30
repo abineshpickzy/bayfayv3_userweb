@@ -1,0 +1,92 @@
+@import "../../styles/colors";
+
+.billing-details-container {
+  position: fixed;
+  z-index: 999999;
+}
+
+.billing-details-modal {
+  top: 0 !important;
+  bottom: 0 !important;
+  overflow-y: auto;
+  width: 400px !important;
+  padding-bottom: 30px;
+  background-color: $white;
+}
+
+.left-margin {
+  margin-left: 80px;
+}
+
+.billing-details-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-left: 60px;
+  margin-bottom: 15px;
+}
+
+.color-gray {
+  color: $grey !important;
+}
+
+.path {
+  width: 1px;
+  border-right: 1px dashed $promo-silver;
+  height: 80px;
+  margin: 10px 0;
+}
+
+.color-orange {
+  color: $orange !important;
+}
+
+.margin-top-80 {
+  margin-top: 80px;
+}
+
+.font-size-15 {
+  font-size: 15px;
+}
+
+.fake-icon {
+  width: 30px;
+}
+
+.track-order-blue-color {
+  color: $subscribe-btn-bg;
+}
+
+.path-color {
+  color: $promo-silver;
+}
+
+.track-order-orange-color {
+  color: $shop-rating-start-color;
+}
+
+.track-order-black-color {
+  color: $auth-color;
+}
+
+.custom-dashed-divider-color {
+  border-color: $checkout-btn-bg-empty-cart !important;
+}
+
+.separator-9e9e9e {
+  background-color: $checkout-btn-bg-empty-cart !important;
+}
+
+.taxes-info {
+  height: 21px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.billing-cancelled-order {
+  text-decoration: underline;
+  position: absolute;
+  top: 154px;
+  left: 150px;
+  font-size: 0.9rem;
+}
