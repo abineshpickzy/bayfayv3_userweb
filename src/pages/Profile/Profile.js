@@ -90,6 +90,7 @@ const Profile = () => {
         sendRequest(url, method, body, success, error, response => {
             setImageFetching(false);
             if (response.success) {
+                 getUserProfile();
                 const reader = new FileReader();
                 reader.readAsDataURL(img);
                 reader.onload = () => {

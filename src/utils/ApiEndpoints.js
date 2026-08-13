@@ -1188,7 +1188,40 @@ class ApiEndpoints {
                     success: null,
                     error: null
                 }
+            },
+            notifyMsg: (orderId) => {
+                return {
+                    url: '/order/track/notify/msg',
+                    method: 'POST',
+                    body: { order_id: orderId },
+                    success: null,
+                    error: null
+                }
+            },
+            trackDelivery:(orderId)=>{
+                     return {
+                    url: '/order/track/delivery/track',
+                    method: 'POST',
+                    body: { order_id: orderId },
+                    success: null,
+                    error: null
+                }
             }
+            ,
+            fetchRoute: (orderMid, source, destination) => {
+                return {
+                    url: '/order/track/delivery/coord',
+                    method: 'POST',
+                    body: {
+                        order_mid: orderMid,
+                        source: { type: 'Point', coordinates: [source.lat, source.lng] },
+                        destination: { type: 'Point', coordinates: [destination.lat, destination.lng] }
+                    },
+                    success: null,
+                    error: null
+                }
+            },
+             
         };
         endpoints.global = {
             enquiry: (body) => {

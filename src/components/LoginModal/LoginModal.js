@@ -239,7 +239,7 @@ const LoginModal = ({show, clickBackdrop, openSignUp}) => {
 
     const getRazzorSettings = () => {
         const {url, method, body, success, error} = apiEndpoints.getApiEndpoints().razor.getRazorSettings();
-        sendRequest(url, method, body, success, error);
+        sendRequest(url, method, body, success, error, null, () => {});
     };
 
     const closeModal = () => {

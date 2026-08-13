@@ -10,6 +10,7 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import ShopContactDialog from "../ShopContactDialog/ShopContactDialog";
 import {TrackOrderUtils} from "../../utils/TrackOrderUtils";
 import AlertDialog from "../AlertDialog/AlertDialog";
+import OrderTrackingModal from "../../components/Ordertrackingmodal/Ordertrackingmodal";
 
 const TrackOrderItems = ({openItemDetails, openDetailsModal, loadNextPage, loadingNextPage, loadingOrders}) => {
     const apiEndpoints = new ApiEndpoints();
@@ -24,6 +25,7 @@ const TrackOrderItems = ({openItemDetails, openDetailsModal, loadNextPage, loadi
     const [showContactDialog, setShowContactDialog] = useState(false);
     const [contactData, setContactData] = useState('');
     const [showAlertDialog, setShowAlertDialog] = useState(false);
+    const [trackingOrder, setTrackingOrder] = useState(null);
 
     const trackOrders = useSelector(state => state.trackOrderReducer.trackOrders);
 
@@ -69,6 +71,14 @@ const TrackOrderItems = ({openItemDetails, openDetailsModal, loadNextPage, loadi
         setShowContactDialog(true);
     };
 
+    const openTrackOrderModal = order => {
+        setTrackingOrder(order);
+    };
+
+    const closeTrackOrderModal = () => {
+        setTrackingOrder(null);
+    };
+
     const buzzUp = (orderId) => {
         if (TrackOrderUtils.checkIfCanBuzz(orderId)) {
             const {url, method, body, success, error} = apiEndpoints.getApiEndpoints().order.buzz(orderId);
@@ -99,7 +109,9 @@ const TrackOrderItems = ({openItemDetails, openDetailsModal, loadNextPage, loadi
                                        openContactDialog={openContactDialog}
                                        openHelpModal={openHelpModal}
                                        openCancelOrderModal={openCancelOrderModal}
-                                       openDetailsModal={openDetailsModal}/>
+                                       openDetailsModal={openDetailsModal}
+                                       openTrackOrderModal={openTrackOrderModal}
+                                     />
             })}
             {loadingNextPage ? <div className='next-page-loader'>
                 <div className="spinner-border text-dark" role="status">
@@ -120,6 +132,9 @@ const TrackOrderItems = ({openItemDetails, openDetailsModal, loadNextPage, loadi
             <AlertDialog title={'Cancel order'} message={CAN_NOT_CANCEL_ORDER_MESSAGE} confirmButtonText={'Ok'}
                          show={showAlertDialog} clickBackdrop={() => setShowAlertDialog(false)} hideRejectButton={true}
                          onConfirm={() => setShowAlertDialog(false)}/>
+            <OrderTrackingModal show={!!trackingOrder}
+                               order={trackingOrder}
+                               onClose={closeTrackOrderModal}/>
             {(isLoading || loading || loadingOrders) && <Loader/>}
         </div>
     );

@@ -26,11 +26,10 @@ router.get("/", async function(req, res, next) {
         rootUrl.changefreq = "daily";
         rootUrl.priority = "1.0";
         rootUrl["image:image"] = {
-            "image:loc": "s://www.bayfay.com/default-image.jpg",
-            "image:caption":
-                "test",
+            "image:loc": "https://www.bayfay.com/icons/images/icon-200x200.png",
+            "image:caption": "BayFay - Order Food, Groceries and More",
         };
-        // collection.push(rootUrl);
+        collection.push(rootUrl);
  
         if (siteRecord) {
             //add recipes urls

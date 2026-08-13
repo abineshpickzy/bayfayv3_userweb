@@ -4,7 +4,8 @@ import {
     GET_TRACKING_ORDERS_ERROR,
     GET_TRACKING_ORDERS_SUCCESS, REMOVE_ORDER,
     REPLACEMENT_TITLES_FETCH_SUCCESS,
-    SHOP_REVIEW_TITLES_FETCH_SUCCESS
+    SHOP_REVIEW_TITLES_FETCH_SUCCESS,
+    UPDATE_ORDER_STATUS,UPDATE_ORDER_SOCKET_DATA
 } from "../actionTypes/trackOrder-actions";
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
     shopReviewTitles: null,
     replacementTitles: [],
     cancelOrderTitles: [],
-    ordersCount: 0
+    ordersCount: 0,
+    liveTrackingData: {}
 };
 
 const trackOrderReducer = (state = initialState, action) => {
@@ -63,6 +65,10 @@ const trackOrderReducer = (state = initialState, action) => {
                 ...state,
                 productsDetails: null
             };
+        case UPDATE_ORDER_STATUS:
+            return updateOrderStatus(state, action);
+        case UPDATE_ORDER_SOCKET_DATA:
+            return updateOrderSocketData(state, action);
         default:
             return state;
     }
@@ -99,6 +105,44 @@ const removeOrder = (state, action) => {
         ...state,
         trackOrders
     }
+};
+
+const updateOrderStatus = (state, action) => {
+    const { orderId, status } = action.payload;
+    const trackOrders = state.trackOrders.map(group => ({
+        ...group,
+        orders: group.orders.map(o =>
+            String(o._id) === String(orderId) ? { ...o, status } : o
+        )
+    }));
+    return { ...state, trackOrders };
+};
+
+const updateOrderSocketData = (state, action) => {
+    const { current_location, order_info } = action.payload;
+    if (!current_location || !order_info) return state;
+
+    const liveTrackingData = { ...state.liveTrackingData };
+    order_info.forEach(info => {
+        const prev = liveTrackingData[info.order_id];
+        const prevCoords = prev?.associateLocation?.coordinates;
+        const nextCoords = current_location?.coordinates;
+        // Always increment pingSeq so AnimatedAssociateMarker fires on every
+        // socket ping — even when the snapped road position hasn't changed.
+        const pingSeq = (prev?.pingSeq ?? 0) + 1;
+        liveTrackingData[info.order_id] = {
+            associateLocation: current_location,
+            associateStatus: info.associateInfo?.status,
+            orderStatus: info.status,
+            assistantId: info.associateInfo?.assistant_id,
+            pingSeq
+        };
+    });
+
+    return {
+        ...state,
+        liveTrackingData
+    };
 };
 
 export default trackOrderReducer;

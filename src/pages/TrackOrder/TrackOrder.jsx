@@ -1,18 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import NavigationMenu from "../../components/NavigationMenu/NavigationMenu";
 import TrackOrderItems from "../../components/TrackOrderItems/TrackOrderItems";
 import TrackOrderItemDetails from "../../components/TrackOrderItemDetails/TrackOrderItemDetails";
 import BillingDetailsModal from "../../components/BillingDetailsModal/BillingDetailsModal";
 import './TrackOrder.scss';
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import history from "../../utils/history";
 import CodPaymentDialog from "../../components/CODPaymentDialog/CODPaymentDialog";
 import StoreReviewDialog from "../../components/StoreReviewDialog/StoreReviewDialog";
 import useHttp from "../../hooks/http";
 import ApiEndpoints from "../../utils/ApiEndpoints";
 import useSyncDispatch from "../../hooks/dispatch";
-import {CLEAR_PRODUCTS_DETAILS, CLEAR_TRACKING_ORDERS, REMOVE_ORDER} from "../../store/actionTypes/trackOrder-actions";
+import {CLEAR_PRODUCTS_DETAILS, CLEAR_TRACKING_ORDERS, REMOVE_ORDER, UPDATE_ORDER_STATUS, UPDATE_ORDER_SOCKET_DATA} from "../../store/actionTypes/trackOrder-actions";
 import RequestSpinner from "../../components/RequestSpinner/RequestSpinner";
+import io from "socket.io-client";
+import AuthUtils from "../../utils/AuthUtils";
 
 const ORDERS = 'ORDERS';
 const ITEM_ORDER_DETAILS = 'ITEM_ORDER_DETAILS';
@@ -21,6 +23,7 @@ const TrackOrder = () => {
     const {sendRequest} = useHttp();
     const apiEndpoints = new ApiEndpoints();
     const {sendDispatch} = useSyncDispatch();
+    const dispatch = useDispatch();
 
     const [activeView, setActiveView] = useState(ORDERS);
     const [order, setOrder] = useState(null);
@@ -40,6 +43,28 @@ const TrackOrder = () => {
     const productsDetails = useSelector(state => state.trackOrderReducer.productsDetails);
     const ordersCount = useSelector(state => state.trackOrderReducer.ordersCount);
     const ordersLoaded = useSelector(state => state.trackOrderReducer.trackOrders?.length);
+    const trackOrders = useSelector(state => state.trackOrderReducer.trackOrders);
+
+    const socketRef = useRef(null);
+    const trackOrdersRef = useRef(trackOrders);
+    const lastSentAssociateIds = useRef('');
+
+    const getAssociateIds = (orders) => {
+        return orders
+            .flatMap(o => o.orders)
+            .filter(o => o.status < 5 && o.assistant_info?.assistant_id)
+            .map(o => String(o.assistant_info.assistant_id));
+    };
+
+    const emitInit = (socket, orders) => {
+        const associateIds = getAssociateIds(orders);
+        if (associateIds.length > 0) {
+            socket.emit('customer_app_init', {
+                keyname: 'customer_location_request',
+                associateId: associateIds
+            });
+        }
+    };
 
     useEffect(() => {
         if (isGuest === true) {
@@ -50,6 +75,59 @@ const TrackOrder = () => {
             getOrdersCount();
         }
     }, [isGuest]);
+
+    // keep ref in sync so socket handlers always see latest trackOrders
+    useEffect(() => {
+        trackOrdersRef.current = trackOrders;
+    }, [trackOrders]);
+
+    // create socket connection once per isGuest change
+    useEffect(() => {
+        if (isGuest === false) {
+            const token = AuthUtils.getToken();
+            const socket = io(process.env.REACT_APP_SOCKET_URL || "https://user-devapi.bayfay.com" , {
+                query: { token }
+            });
+            socketRef.current = socket;
+
+            socket.on('connect', () => {
+                if (trackOrdersRef.current?.length > 0) {
+                    lastSentAssociateIds.current = getAssociateIds(trackOrdersRef.current).sort().join(',');
+                    emitInit(socket, trackOrdersRef.current);
+                }
+            });
+
+          
+            socket.on('response', (data) => {
+                if (data?.current_location && data?.order_info) {
+                    dispatch({ type: UPDATE_ORDER_SOCKET_DATA, payload: { current_location: data.current_location, order_info: data.order_info } });
+
+                    data.order_info.forEach(info => {
+                        if (info.order_id && info.status !== undefined) {
+                            dispatch({ type: UPDATE_ORDER_STATUS, payload: { orderId: info.order_id, status: info.status } });
+                        }
+                    });
+                }
+            });
+
+            return () => {
+                socket.removeAllListeners();
+                socket.disconnect();
+            };
+        }
+    }, [isGuest]);
+
+    // only re-subscribe when the actual set of associate ids changes
+    useEffect(() => {
+        if (socketRef.current?.connected && trackOrders?.length > 0) {
+            const key = getAssociateIds(trackOrders).sort().join(',');
+
+            if (key && key !== lastSentAssociateIds.current) {
+                lastSentAssociateIds.current = key;
+                emitInit(socketRef.current, trackOrders);
+            }
+        }
+    }, [trackOrders]);
 
     useEffect(() => {
         if (!isGuest) {

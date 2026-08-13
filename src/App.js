@@ -145,7 +145,7 @@ function App({location}) {
 
     const getRazorSettings = () => {
         const {url, method, body, success, error} = apiEndpoints.getApiEndpoints().razor.getRazorSettings();
-        sendRequest(url, method, body, success, error);
+        sendRequest(url, method, body, success, error,null, () => {});
     };
 
     const resetError = () => {

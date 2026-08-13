@@ -14,7 +14,7 @@ import {useSelector} from "react-redux";
 
 const TrackOrderItem = ({
                             order, openDetailsModal, openHelpModal, setIsLoading, openCancelOrderModal, buzzUp,
-                            openContactDialog, openItemDetails
+                            openContactDialog, openItemDetails, openTrackOrderModal
                         }) => {
     const apiEndpoints = new ApiEndpoints();
     const {sendRequest} = useHttp();
@@ -27,7 +27,7 @@ const TrackOrderItem = ({
     useEffect(() => {
         let isCancelled = false;
         if (isGuest === false) {
-            getOrderBillingDetails();
+            getOrderBillingDetails(isCancelled);
             if (order?.shop_icon) {
                 fetchImage(`/category/view/img?img=${order.shop_icon}&format=jpeg&width=300&height=300`)
                     .then(response => {
@@ -76,6 +76,10 @@ const TrackOrderItem = ({
                 setLastTimeBuzzed(moment(new Date()).format('DD/MM/YYYY HH:mm:ss'));
             }
         }
+    };
+
+    const onTrackOrder = () => {
+        openTrackOrderModal(order);
     };
 
     return (
@@ -139,10 +143,13 @@ const TrackOrderItem = ({
                         <span className="track-order-blue mr-2 font-size-3 font-weight-bold"> Billing details </span> <i
                         className="far fa-chevron-right right-arrow-color"/>
                     </span>
-                    <a href={`https://www.google.com/maps/dir/?api=1&destination=${order.shop_location.coordinates[1]},${order.shop_location.coordinates[0]}`}
-                       target="_blank" rel='noreferrer'>
-                        <img src={map} className="map-img-size cursor-pointer ml-4"/>
-                    </a>
+
+                    {order.shop_location?.coordinates ? (
+                        <a href={`https://www.google.com/maps/dir/?api=1&destination=${order.shop_location.coordinates[1]},${order.shop_location.coordinates[0]}`}
+                            target="_blank" rel='noreferrer'>
+                            <img src={map} className="map-img-size cursor-pointer ml-4" />
+                        </a>
+                    ) : null}
                 </div>
             </div>
 
@@ -157,6 +164,13 @@ const TrackOrderItem = ({
                         onClick={() => openHelpModal(order)}>
                     Help
                 </button>
+
+                {order.status < 5 ? (
+                    <button className="btn btn-outline-primary px-3 py-1 mx-3 "
+                            onClick={onTrackOrder}>
+                        Track Order
+                    </button>
+                ) : null}
 
                 {order.status !== 5 ? <button className="btn btn-outline-danger py-1 mx-3 cancel-order-btn"
                     onClick={() => openCancelOrderModal(order)}>

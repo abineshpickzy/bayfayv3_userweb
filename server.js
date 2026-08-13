@@ -32,6 +32,9 @@ let default_meta = {
       "rating": 0
 }
 
+// Build the real, current-page URL (fixes canonical tag bug)
+const getFullUrl = (req) => req.protocol + 's://' + req.get('host') + req.originalUrl;
+
 // list all files in the directory
 try {
     let files = fs.readdirSync(jsDir);
@@ -61,6 +64,10 @@ app.set('trust proxy', true);
 // });
 
 app.use("/sitemap", sitemapRouter);
+
+app.get("/", (req, res) => {
+    res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});
+});
 
 app.get('/:shopId', async (req, res) =>{
  
@@ -92,66 +99,66 @@ app.get('/:shopId', async (req, res) =>{
     try {
 
       if (req.params.shopId && req.params.shopId == "home") {
-          res.render("index.ejs", {...default_meta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else 
       if (req.params.shopId && req.params.shopId == "terms") {
           let tersmMetaData = await getTermsMeta()
-          res.render("index.ejs", {...tersmMetaData, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...tersmMetaData, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else       
       if (req.params.shopId && req.params.shopId == "cancellation") {
           let cancellationMeta = await getCancellationMeta()
-          res.render("index.ejs", {...cancellationMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...cancellationMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else       
       if (req.params.shopId && req.params.shopId == "merchant-policy") {
           let merchantPolicy = await getMerchantPolicy()
-          res.render("index.ejs", {...merchantPolicy, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...merchantPolicy, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else       
       if (req.params.shopId && req.params.shopId == "privacy") {
           let privacyPolicy = await getPrivacyPolicy()
-          res.render("index.ejs", {...privacyPolicy, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...privacyPolicy, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else
       if (req.params.shopId && req.params.shopId == "merchant-help") {
           let merchantHelp = await getMerchantHelp()
-          res.render("index.ejs", {...merchantHelp, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...merchantHelp, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else
       if (req.params.shopId && req.params.shopId == "api") {
           let apiMeta = await getAPIMeta()
-          res.render("index.ejs", {...apiMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...apiMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else       
       if (req.params.shopId && req.params.shopId == "partner") {
           let partnerMeta = await getPartnerMeta()
-          res.render("index.ejs", {...partnerMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...partnerMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else       
       if (req.params.shopId && req.params.shopId == "faq") {
           let faqMeta = await getFaqMeta()
-          res.render("index.ejs", {...faqMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...faqMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else
       if (req.params.shopId && req.params.shopId == "help") {
           let helpMeta = await hetHelpMeta()
-          res.render("index.ejs", {...helpMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...helpMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else
       if (req.params.shopId && req.params.shopId == "about-us") {
           let aboutUsMeta = getAboutUsMeta()
-          res.render("index.ejs", {...aboutUsMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...aboutUsMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else 
       if (req.params.shopId && req.params.shopId == "data") {
           let deleteAccountMeta = getDeleteAccountMeta()
-          res.render("index.ejs", {...deleteAccountMeta, jsFiles, cssFiles}  );
+          res.render("index.ejs", {...deleteAccountMeta, web_url: getFullUrl(req), jsFiles, cssFiles}  );
           return;
       } else
       if (!req.params.shopId) {
-          res.render("index.ejs", {...default_meta, jsFiles, cssFiles});
+          res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});
           return
       }
 
@@ -161,17 +168,17 @@ app.get('/:shopId', async (req, res) =>{
         response.body.data.web_url = fullUrl;
         res.render("index.ejs", {...response.body.data, jsFiles, cssFiles}  );
       } else {
-        res.render("index.ejs", {...default_meta, jsFiles, cssFiles});
+        res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});
       }
       return;
     } catch (e) {
         console.log(e)
-        res.render("index.ejs", {...default_meta, jsFiles, cssFiles});
+        res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});
     }
 });
 
 app.get("*", async (req, res, next) => {
-    res.render("index.ejs", {...default_meta, jsFiles, cssFiles});
+    res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});
 });
 
 // For local development

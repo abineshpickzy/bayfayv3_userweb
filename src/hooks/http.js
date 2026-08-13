@@ -53,7 +53,7 @@ const useHttp = () => {
     const sendRequest = useCallback(
         (url, method, body, actionTypeSuccess, actionTypeError, successCallback, errorCallback) => {
             changeHttpState({type: SENDING});
-            console.log('API Request:', { url, method, body });
+          
             axios({
                 url: url,
                 method: method,
@@ -62,7 +62,7 @@ const useHttp = () => {
                     'Content-Type': 'application/json'
                 }
             }).then(response => {
-                console.log('API Response:', response.data);
+             
                 dispatch({
                     type: actionTypeSuccess,
                     payload: response.data
@@ -83,7 +83,7 @@ const useHttp = () => {
                     });
                 }
                 errorCallback && errorCallback();
-                dispatch({type: API_ERROR, payload: error});
+                if (!errorCallback) dispatch({type: API_ERROR, payload: error});
                 changeHttpState({type: ERROR, payload: error});
                 changeHttpState({type: DONE});
             });

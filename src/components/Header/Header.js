@@ -99,7 +99,7 @@ const Header = ({ location, openScratchCard }) => {
         const stores = [...privateShops.storesIds, ...publicShops.storesIds, ...brandedShops.storesIds, ...globalShops.storesIds];
         if (stores?.length > 0) {
             const { url, method, body, success, error } = apiEndpoints.getApiEndpoints().offers.getOffers(stores);
-            sendRequest(url, method, body, success, error);
+            sendRequest(url, method, body, success, error,null,()=>{});
         }
     };
 

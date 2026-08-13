@@ -1,0 +1,460 @@
+// ---- Design tokens (kept from the existing palette, just centralized) ----
+$brand-gradient: linear-gradient(90deg, #ff8a3d, #ff3d68);
+$brand-orange: #ff5722;
+$accent-blue: #3b5bdb;
+$accent-blue-soft: #f0f4ff;
+$success-green: #2ecc71;
+$text-primary: #1f2430;
+$text-secondary: #6b7280;
+$text-muted: #a3a9b7;
+$border-soft: #eef0f4;
+$surface: #ffffff;
+$surface-muted: #f7f8fa;
+
+.order-tracking-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 18, 25, 0.55);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: otm-fade-in 0.15s ease-out;
+}
+
+.order-tracking-modal {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+    height: 85vh;
+    background: $surface;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(15, 18, 25, 0.28);
+    animation: otm-scale-in 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.order-tracking-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $surface;
+    border: none;
+    box-shadow: 0 4px 12px rgba(15, 18, 25, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-secondary;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, color 0.12s ease;
+
+    &:hover {
+        color: $text-primary;
+        transform: scale(1.06);
+    }
+}
+
+.order-tracking-modal-body {
+    width: 100%;
+    height: 100%;
+    gap: 0;
+}
+
+.order-tracking-map-pane {
+    position: relative;
+    flex: 1 1 65%;
+    height: 100%;
+    background: #eef1f4;
+}
+
+.order-tracking-map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: $surface-muted;
+}
+
+.order-tracking-map-placeholder-text {
+    color: $text-muted;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.order-tracking-side-panel {
+    flex: 0 0 380px;
+    max-width: 380px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px 20px 24px;
+    background: $surface;
+    border-left: 1px solid $border-soft;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #e2e5ea;
+        border-radius: 999px;
+    }
+}
+
+// ---- Shop header ----
+.order-tracking-shop-card {
+    background: $brand-gradient;
+    border-radius: 14px;
+    padding: 14px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(255, 61, 104, 0.22);
+}
+
+.order-tracking-shop-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.order-tracking-shop-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    min-width: 0;
+}
+
+.order-tracking-shop-name {
+    font-weight: 700;
+    font-size: 1.02rem;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order-tracking-order-id {
+    font-size: 0.82rem;
+    opacity: 0.88;
+    margin-top: 2px;
+}
+
+// ---- Associate status pill ----
+.order-tracking-associate-status-badge {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: $accent-blue-soft;
+    color: $accent-blue;
+    font-size: 0.82rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.order-tracking-associate-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $accent-blue;
+    margin-right: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.15);
+}
+
+// ---- Section title ----
+.order-tracking-status-title {
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-muted;
+    margin: 24px 0 14px;
+}
+
+// ---- Connected stepper timeline ----
+.order-tracking-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-tracking-timeline-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.order-tracking-timeline-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+
+.order-tracking-timeline-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: $surface;
+    border: 2px solid #e2e5ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: #fff;
+    flex-shrink: 0;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.order-tracking-timeline-line {
+    width: 2px;
+    flex: 1;
+    min-height: 26px;
+    background: #e2e5ea;
+    margin: 2px 0;
+}
+
+.order-tracking-timeline-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 22px;
+    min-width: 0;
+}
+
+.order-tracking-timeline-item.is-completed {
+    .order-tracking-timeline-dot {
+        background: $success-green;
+        border-color: $success-green;
+    }
+    .order-tracking-timeline-line {
+        background: $success-green;
+    }
+}
+
+.order-tracking-timeline-item.is-current {
+    .order-tracking-timeline-dot {
+        background: $brand-orange;
+        border-color: $brand-orange;
+        box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.16);
+    }
+    .order-tracking-status-step-title {
+        color: $brand-orange;
+    }
+}
+
+.order-tracking-timeline-item:last-child .order-tracking-timeline-content {
+    padding-bottom: 0;
+}
+
+.order-tracking-status-step-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.3;
+}
+
+.order-tracking-status-step-desc {
+    font-size: 0.8rem;
+    color: $text-secondary;
+    margin-top: 3px;
+    line-height: 1.4;
+}
+
+// ---- Associate contact card ----
+.order-tracking-associate-card {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    padding: 12px;
+    background: $surface-muted;
+    border-radius: 14px;
+    border: 1px solid $border-soft;
+}
+
+.order-tracking-associate-avatar-wrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    padding: 2px;
+    background: $brand-gradient;
+    flex-shrink: 0;
+}
+
+.order-tracking-associate-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    background: #e0e0e0;
+    border: 2px solid $surface-muted;
+}
+
+.order-tracking-associate-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    min-width: 0;
+    flex: 1;
+}
+
+.order-tracking-associate-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: $text-primary;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order-tracking-associate-mobile {
+    font-size: 0.82rem;
+    color: $text-secondary;
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+.order-tracking-associate-label {
+    font-size: 0.76rem;
+    color: $accent-blue;
+    margin-top: 2px;
+}
+
+.order-tracking-associate-call-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: $brand-gradient;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 14px rgba(255, 61, 104, 0.28);
+    transition: transform 0.12s ease;
+
+    &:hover {
+        transform: scale(1.06);
+        color: #fff;
+    }
+}
+
+// ---- Delivered success popup ----
+.order-delivered-popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 18, 25, 0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: otm-fade-in 0.15s ease-out;
+}
+
+.order-delivered-popup {
+    background: $surface;
+    border-radius: 20px;
+    padding: 36px 32px 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(15, 18, 25, 0.3);
+    max-width: 340px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: otm-scale-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.order-delivered-popup-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(46, 204, 113, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.order-delivered-popup-icon {
+    font-size: 2.4rem;
+    color: $success-green;
+}
+
+.order-delivered-popup-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text-primary;
+}
+
+.order-delivered-popup-desc {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    margin: 6px 0 0;
+}
+
+.order-delivered-popup-ok {
+    margin-top: 20px;
+    padding: 11px 44px;
+    border-radius: 999px;
+    border: none;
+    background: $brand-gradient;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 61, 104, 0.28);
+    transition: opacity 0.12s ease, transform 0.12s ease;
+
+    &:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
+    }
+}
+
+@keyframes otm-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes otm-scale-in {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 900px) {
+    .order-tracking-modal {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .order-tracking-modal-body {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .order-tracking-map-pane {
+        flex: 0 0 45vh;
+        width: 100%;
+    }
+
+    .order-tracking-side-panel {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px solid $border-soft;
+    }
+}
