@@ -34,7 +34,7 @@ let default_meta = {
 
 // Build the real, current-page URL (fixes canonical tag bug)
 const getFullUrl = (req) => {
-  console.log(req)
+  console.log(req.protocol + '://' + req.get('host') + req.originalUrl )
   
   return req.protocol + '://' + req.get('host') + req.originalUrl
   
