@@ -33,7 +33,12 @@ let default_meta = {
 }
 
 // Build the real, current-page URL (fixes canonical tag bug)
-const getFullUrl = (req) => req.protocol + 's://' + req.get('host') + req.originalUrl;
+const getFullUrl = (req) => {
+  console.log(req)
+  
+  return req.protocol + '://' + req.get('host') + req.originalUrl
+  
+  };
 
 // list all files in the directory
 try {
