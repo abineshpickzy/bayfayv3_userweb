@@ -17,8 +17,8 @@ const cssDir = __dirname + '/build/static/css/';
 let jsFiles=[], cssFiles = [];
 
 // Default metadata
-const _title = "Order Food, Groceries, Vegetables and Meat on BayFay, best home delivery service. Order from any nearby shops";
-const _description = "Order food online from restaurants and get it delivered. Serving in Bangalore, Hyderabad, Delhi, Gurgaon, Nagpur, Jaipur, Coimbatore, Chandigarh, Ahemdabad, Visakhapatnam, Lucknow, Noida, Mumbai, Pune, Indore, Kochi, Kolkata, Nagercoil and Chennai. Order Pizzas, Burgers, Biryanis, Desserts..";
+const _title = "BayFay - Order Food, Groceries & Meat Online | Home Delivery";
+const _description = "Order food, groceries, vegetables and meat online on BayFay and get fast home delivery from shops near you, in cities across India.";
 const _keywords = "restaurants, order food, order Groceries, order Meat, order online, order food online, food, delivery, food delivery, home delivery, fast, hungry, quickly, offer, discount, takeaway, cuisine, pizza, burger, biryani, dessert, juice, dosa, bangalore, visakhapatnam, nagpur, bengaluru, delhi, gurgaon, ncr, noida, lucknow, hyderabad, mumbai, jaipur, bombay, chennai, pune, kolkata, ahemdabad, kochi, coimbatore, nagercoil, pizza hut, mcd, mcdonalds, dominos, haagen dazs, baskin robbins, papa johns, kfc, haldiram, breakfast, lunch, dinner, snacks, restaurants near me, Aashirvaad, Saffola, Fortune, Nestle, Amul, Mother Dairy, Coke, Pepsi, Bisleri, Colgate, Patanjali, Dabur, Surf Excel, Maggi, Vim, Haldiram's, Kellogg’s, Nescafe, Pampers";
 const _image_url = "https://www.bayfay.com/icons/images/icon-200x200.png";
 const _url = "https://www.bayfay.com";
