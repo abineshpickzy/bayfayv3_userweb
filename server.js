@@ -6,7 +6,7 @@ const sitemapRouter = require("./sitemap");
 const fs = require('fs');
 require('dotenv').config();
 
-app.use(express.static(__dirname + "/build"));
+app.use(express.static(__dirname + "/build", { index: false }));
 
 app.set("views", __dirname + "/views");
 app.engine("html", require("ejs").renderFile);
@@ -33,12 +33,7 @@ let default_meta = {
 }
 
 // Build the real, current-page URL (fixes canonical tag bug)
-const getFullUrl = (req) => {
-  console.log("Hello :" ,req.protocol + '://' + req.get('host') + req.originalUrl )
-  
-  return req.protocol + '://' + req.get('host') + req.originalUrl
-  
-  };
+const getFullUrl = (req) => req.protocol + '://' + req.get('host') + req.originalUrl;
 
 // list all files in the directory
 try {
@@ -71,7 +66,7 @@ app.set('trust proxy', true);
 app.use("/sitemap", sitemapRouter);
 
 app.get("/", (req, res) => {
-    res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});
+    res.redirect(301, '/home');
 });
 
 app.get('/:shopId', async (req, res) =>{
@@ -169,8 +164,7 @@ app.get('/:shopId', async (req, res) =>{
 
       let response = await getMetaData(req.params.shopId);
       if (response.body.data) {
-        var fullUrl = req.protocol + 's://' + req.get('host') + req.originalUrl + '/';
-        response.body.data.web_url = fullUrl;
+        response.body.data.web_url = getFullUrl(req);
         res.render("index.ejs", {...response.body.data, jsFiles, cssFiles}  );
       } else {
         res.render("index.ejs", {...default_meta, web_url: getFullUrl(req), jsFiles, cssFiles});

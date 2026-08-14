@@ -86,23 +86,44 @@
     <%for (var i = 0; i < cssFiles.length; i++) { %>
     <link href="/static/css/<%= cssFiles[i] %>" rel="stylesheet">
     <%} %>
+    <style>
+      /* Keeps the SEO shell out of the way visually without removing it from
+         the DOM (display:none is ignored by some crawlers/renderers) */
+      #seo-shell {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
+
+    <!-- Static SEO content: always present in the raw HTML response,
+         independent of React mounting or any API call finishing.
+         Fixes: missing H1, missing headings, "page is a dead end / no
+         internal links", 0-word-count errors reported by SEO crawlers. -->
+    <div id="seo-shell">
       <h1><%= title %></h1>
       <p><%= description %></p>
-      <nav>
-        <a href="/">Home</a>
+      <nav aria-label="Site">
+        <a href="/home">Home</a>
         <a href="/about-us">About Us</a>
         <a href="/faq">FAQ</a>
         <a href="/help">Help</a>
-        <a href="/partner">Partner With Us</a>
         <a href="/terms">Terms of Use</a>
         <a href="/privacy">Privacy Policy</a>
-        <a href="/cancellation">Cancellation Policy</a>
+        <a href="/cancellation">Cancellation &amp; Refund</a>
+        <a href="/partner">Partner With Us</a>
+        <a href="/merchant-help">Merchant Help</a>
+        <a href="/merchant-policy">Merchant Policy</a>
       </nav>
     </div>
+
+    <div id="root"></div>
     <script>
       !(function (e) {
         function r(r) {

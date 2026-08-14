@@ -17,19 +17,19 @@ router.get("/", async function(req, res, next) {
         var siteRecord = JSON.parse(records.body);
 
         const collection = [];
-        let today = moment();
-        today = today.format("YYYY-MM-DD");
-        //add site root url
-        const rootUrl = {};
-        rootUrl.loc = "https://www.bayfay.com/";
-        rootUrl.lastmod = today;
-        rootUrl.changefreq = "daily";
-        rootUrl.priority = "1.0";
-        rootUrl["image:image"] = {
-            "image:loc": "https://www.bayfay.com/icons/images/icon-200x200.png",
-            "image:caption": "BayFay - Order Food, Groceries and More",
-        };
-        collection.push(rootUrl);
+        // let today = moment();
+        // today = today.format("YYYY-MM-DD");
+        // //add site root url
+        // const rootUrl = {};
+        // rootUrl.loc = "https://www.bayfay.com/";
+        // rootUrl.lastmod = today;
+        // rootUrl.changefreq = "daily";
+        // rootUrl.priority = "1.0";
+        // rootUrl["image:image"] = {
+        //     "image:loc": "https://www.bayfay.com/icons/images/icon-200x200.png",
+        //     "image:caption": "BayFay - Order Food, Groceries and More",
+        // };
+        // collection.push(rootUrl);
  
         if (siteRecord) {
             //add recipes urls
